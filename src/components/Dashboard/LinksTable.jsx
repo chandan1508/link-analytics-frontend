@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { deleteUrl } from "../../api/urls";
 import Button from "../UI/Button";
 import { format } from "date-fns";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
+import copy from "copy-to-clipboard";
 import { ToastContainer, toast } from "react-toastify";
 import { FaCopy, FaSearch } from "react-icons/fa";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -41,7 +42,11 @@ const LinksTable = ({ links = [], onDelete, handleRefresh }) => {
     }, 500);
   };
 
-  const copyToClipboard = () => {
+  const copyToClipboard = (text) => {
+    copy(text, {
+      debug: true,
+      message: "Press #{key} to copy",
+    });
     toast("Copied to clipboard!");
   };
 
@@ -141,14 +146,14 @@ const LinksTable = ({ links = [], onDelete, handleRefresh }) => {
                     >
                       {`${API_BASE_URL}/${link.shortCode}`}
                     </button>
-                    <CopyToClipboard
+                    {/* <CopyToClipboard
                       text={`${API_BASE_URL}/${link.shortCode}`}
-                      onCopy={copyToClipboard}
-                    >
-                      <button className="text-gray-400 hover:text-gray-600">
+                      onClick={() => copyToClipboard(`${API_BASE_URL}/${link.shortCode}`)}
+                    > */}
+                      <button onClick={() => copyToClipboard(`${API_BASE_URL}/${link.shortCode}`)} className="text-gray-400 hover:text-gray-600">
                         <FaCopy />
                       </button>
-                    </CopyToClipboard>
+                    {/* </CopyToClipboard> */}
                   </div>
                 </div>
                 <div className="ml-2 flex-shrink-0">
@@ -236,14 +241,14 @@ const LinksTable = ({ links = [], onDelete, handleRefresh }) => {
                           >
                             {`${API_BASE_URL}/${link.shortCode}`}
                           </button>
-                          <CopyToClipboard
+                          {/* <CopyToClipboard
                             text={`${API_BASE_URL}/${link.shortCode}`}
-                            onCopy={copyToClipboard}
-                          >
-                            <button className="text-gray-400 hover:text-gray-600">
+                            onClick={() => copyToClipboard(`${API_BASE_URL}/${link.shortCode}`)}
+                          > */}
+                            <button onClick={() => copyToClipboard(`${API_BASE_URL}/${link.shortCode}`)} className="text-gray-400 hover:text-gray-600">
                               <FaCopy />
                             </button>
-                          </CopyToClipboard>
+                          {/* </CopyToClipboard> */}
                         </div>
                       </td>
                       <td className="px-4 py-4 text-center text-sm text-gray-900 whitespace-nowrap">

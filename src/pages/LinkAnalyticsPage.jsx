@@ -4,7 +4,8 @@ import Loader from "../components/UI/Loader";
 import Button from "../components/UI/Button";
 import { FaArrowLeft, FaCopy, FaDownload } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
+import copy from "copy-to-clipboard";
 import { format } from "date-fns";
 import { getUrlAnalytics } from "../api/analytics";
 import { ToastContainer, toast } from "react-toastify";
@@ -66,7 +67,11 @@ const LinkAnalyticsPage = () => {
     }, 500);
   };
 
-  const copyToClipboard = () => {
+  const copyToClipboard = (text) => {
+    copy(text, {
+      debug: true,
+      message: "Press #{key} to copy",
+    });
     toast("Copied to clipboard!");
   };
 
@@ -148,14 +153,14 @@ const LinkAnalyticsPage = () => {
                 >
                   {`${API_BASE_URL}/${data.urlDetails.shortCode}`}
                 </a>
-                <CopyToClipboard
+                {/* <CopyToClipboard
                   text={`${API_BASE_URL}/${data.urlDetails.shortCode}`}
-                  onCopy={copyToClipboard}
-                >
-                  <button className="text-gray-400 hover:text-gray-600">
+                  onClick={() => copyToClipboard(`${API_BASE_URL}/${data.urlDetails.shortCode}`)}
+                > */}
+                  <button onClick={() => copyToClipboard(`${API_BASE_URL}/${data.urlDetails.shortCode}`)} className="text-gray-400 hover:text-gray-600">
                     <FaCopy />
                   </button>
-                </CopyToClipboard>
+                {/* </CopyToClipboard> */}
               </div>
             </div>
 
