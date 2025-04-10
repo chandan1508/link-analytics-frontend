@@ -8,6 +8,8 @@ A full-stack URL shortener with analytics dashboard, built with React, Node.js, 
 
 ### Backend Github: https://github.com/chandan1508/link-analytics-backend.git
 
+### Go Live: https://linnks.netlify.app
+
 ## Features
 
 - **User Authentication**: JWT-based login system
