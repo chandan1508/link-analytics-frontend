@@ -43,10 +43,7 @@ const LinksTable = ({ links = [], onDelete, handleRefresh }) => {
   };
 
   const copyToClipboard = (text) => {
-    copy(text, {
-      debug: true,
-      message: "Press #{key} to copy",
-    });
+    copy(text);
     toast("Copied to clipboard!");
   };
 
@@ -106,6 +103,7 @@ const LinksTable = ({ links = [], onDelete, handleRefresh }) => {
 
   return (
     <div className="relative">
+      <ToastContainer />
       {/* Search Bar */}
       <div className="mb-4">
         <div className="relative max-w-md">
@@ -127,7 +125,7 @@ const LinksTable = ({ links = [], onDelete, handleRefresh }) => {
 
       {/* Mobile view */}
       <div className="md:hidden space-y-4 text-sm">
-        <ToastContainer />
+        {/* <ToastContainer /> */}
         {currentLinks.length > 0 ? (
           currentLinks.map((link) => (
             <div
@@ -201,7 +199,7 @@ const LinksTable = ({ links = [], onDelete, handleRefresh }) => {
 
       {/* Desktop view */}
       <div className="hidden md:block overflow-x-auto">
-        <ToastContainer />
+        {/* <ToastContainer /> */}
         <div className="inline-block min-w-full align-middle">
           <div className="overflow-x-auto border rounded-lg">
             <table className="min-w-full divide-y divide-gray-200 bg-white">

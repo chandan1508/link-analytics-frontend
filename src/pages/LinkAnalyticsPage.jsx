@@ -68,10 +68,7 @@ const LinkAnalyticsPage = () => {
   };
 
   const copyToClipboard = (text) => {
-    copy(text, {
-      debug: true,
-      message: "Press #{key} to copy",
-    });
+    copy(text);
     toast("Copied to clipboard!");
   };
 
