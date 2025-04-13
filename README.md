@@ -10,6 +10,13 @@ A full-stack URL shortener with analytics dashboard, built with React, Node.js, 
 
 ### Go Live: https://linnks.netlify.app
 
+### Test Credentials
+Use the following credentials to test the application:
+
+Email: intern@dacoid.com
+
+Password: Test123
+
 ## Features
 
 - **User Authentication**: JWT-based login system
@@ -157,13 +164,6 @@ frontend/
    ```bash
    VITE_API_BASE_URL=http://localhost:5000
    ```  
-
-### Test Credentials
-Use the following credentials to test the application:
-
-Email: intern@dacoid.com
-
-Password: Test123
 
 ## Available Scripts
 ### Backend
